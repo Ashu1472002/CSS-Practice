@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+#sky,
+#water{
+    height: 50vh;
+    position: relative;
+}
+
+#sky{
+    background: linear-gradient(to bottom, mediumorchid,lavender);
+}
+
+#sky::after{
+    position: absolute;
+    bottom:0;
+    width: 100vh;
+    height: 1px;
+    background: white;
+    content: '';
+    filter: blur(2px);
+    z-index: 10;
+
+}
+
+#water{
+    background: linear-gradient(to bottom, aquamarine,skyblue);
+    z-index: 30;
+}
+
+#sun{
+    height: 30vmin;
+    width: 30vmin;
+    position: absolute;
+    left: 50%;
+    background: linear-gradient(to bottom,gold,darkorange);
+    border-radius: 50%;
+    transform:translate(-50%);
+    z-index: 20;
+    animation:rise 10s ease-in-out infinite;
+}
+
+@keyframes rise {
+    0%{
+        bottom: 0;
+        box-shadow: 0 0 25px 14px orange;
+    }
+    50%{
+
+    }
+    100%{
+        bottom:130vh;
+        box-shadow: 0 0 25px 14px white;
+    }
+
+}
+
+.water-sunrise{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:200%;
+    height:100%;
+    background: radial-gradient(circle at 50% -30%, hsl(2,100%,65%),transparent);
+    transform: translateX(-25%);
+    mix-blend-mode: color-burn;
+    animation:sunrise 10s ease-in-out infinite;
+
+}
+
+@keyframes sunrise {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity:0;
+    }
+
+}
+
+.water-circle{
+    position: absolute;
+    height:0vmin;
+    width: 5vmin;
+    border-radius: 50%;
+    border: 1px solid white;
+}
