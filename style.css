@@ -39,15 +39,17 @@ body{
 }
 
 #sun{
-    height: 30vmin;
-    width: 30vmin;
+    height: 40vmin;
+    width: 40vmin;
     position: absolute;
     left: 50%;
     background: linear-gradient(to bottom,gold,darkorange);
     border-radius: 50%;
     transform:translate(-50%);
     z-index: 20;
-    animation:rise 10s ease-in-out infinite;
+    animation:rise 20s ease-in-out infinite;
+    display:grid;
+    place-items: center;
 }
 
 @keyframes rise {
@@ -74,7 +76,7 @@ body{
     background: radial-gradient(circle at 50% -30%, hsl(2,100%,65%),transparent);
     transform: translateX(-25%);
     mix-blend-mode: color-burn;
-    animation:sunrise 10s ease-in-out infinite;
+    animation:sunrise 20s ease-in-out infinite;
 
 }
 
@@ -94,9 +96,12 @@ body{
 .water-circle,
 .water-circle-1,
 .water-circle-2,
-.water-circle-3{
+.water-circle-3,
+.water-circle-4,
+.water-circle-5,
+.water-circle-6{
     position: absolute;
-    width:0vmin;
+    width:8vmin;
     height: 5vmin;
     border-radius: 50%;
     border: 1.5px solid white;
@@ -105,25 +110,148 @@ body{
     transform: scale(0);
 }
 
-.water-circle::before,
-.water-circle::after{
-    position: absolute;
-    content: '';
-    inset: 0;
-    border: 1.5px solid white;
-    animation: splash 9s infinite;
-    transition: scale(0);
-}
-
 .circle-1{top: 24%; left: 16%;}
 .circle-2{top: 53%;left: 90%;}
 .circle-3{top: 66%;left: 40%;}
 
-
 @keyframes splash {
     0%{}
-    50%,100%{
+    50%,
+    100%{
         opacity: 0;
         transform: scale(1);
     }
 }
+
+.water-circle{
+    animation-delay: 1s;
+}
+
+.water-circle-1{
+    animation-delay: 1.5s;
+}
+
+.water-circle-2{
+    animation-delay: 2s;
+}
+
+.cloud{
+    position: absolute;
+    width:60vmin;
+    height: 6vmin;
+    color: hsla(150,10%,75%,0.8);
+    background: currentColor;
+    top:15vmin;
+    left:20vmin;
+    border-radius:50%;
+    box-shadow: 30vmin 0.5vmin 0 -1vmin currentColor,
+    -25vmin 0 0 -0.6vmin currentColor;
+    opacity:0.3;
+    transform: translateX(-150vmin);
+    animation: clouds 120s infinite;
+    animation-delay: -10s;
+    filter: blur(1px);
+}
+
+.cloud {
+    left:60vmin;
+    top:5vmin;
+    opacity:0.2;
+    filter:blur(1px);
+    animation-delay: 0;
+    animation-duration: 100s;
+}
+
+@keyframes clouds{
+    50%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(150vmin);
+    }
+}
+
+.light{
+    position:absolute;
+    height:0.5vmin;
+    width:20vmin;
+    background: white;
+    left:0;
+    right:0;
+    margin:auto;
+    top:1vmin;
+    opacity:0;
+    border-radius: 25vh;
+    filter:blur(1px);
+    animation: light 20s ease-in-out infinite;
+    animation-delay: 5s;
+    transform: scaleX(0.1) translateX(0);
+}
+
+@keyframes light{
+    5%{
+       opacity:1;
+       transform: scaleX(1); 
+    }
+    10%{
+        opacity:0.6;
+        transform:scaleX(1) translateX(5%);
+    }
+    15%{
+        opacity: 0.6;
+        transform:scaleX(1) translateX(-5%);
+    }
+    20%{
+        opacity:0;
+        transform: scaleX(0.1) translateX(0);
+    }
+}
+
+.light-1{
+    top:2vmin;
+    animation-delay:5.5s;
+}
+.light-2{
+    top:3vmin;
+    animation-delay:6s;
+    width:18vmin;
+}
+.light-3{
+    top:4vmin;
+    animation-delay:6.5s;
+    width:18vmin;
+}
+.light-4{
+    top:5vmin;
+    animation-delay:7s;
+    width:16vmin;
+}
+.light-5{
+    top:6vmin;
+    animation-delay:7.5s;
+    width:14vmin;
+}
+.light-6{
+    top:7vmin;
+    animation-delay:8s;
+    width:10vmin;
+}
+.light-7{
+    top:8vmin;
+    animation-delay:8.5s;
+    width:8vmin;
+}
+/*.light-8{
+    top:9vmin;
+    animation-delay:9s;
+    width:8vmin;
+}*/
+
+#sun h2{
+font-family: sans-serif;
+color:white;
+text-shadow: 0 0 4px white;
+font-size: 2rem;
+font-weight: 800;
+}
+
