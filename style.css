@@ -91,10 +91,39 @@ body{
 
 }
 
-.water-circle{
+.water-circle,
+.water-circle-1,
+.water-circle-2,
+.water-circle-3{
     position: absolute;
-    height:0vmin;
-    width: 5vmin;
+    width:0vmin;
+    height: 5vmin;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1.5px solid white;
+    /*opacity: 0;*/
+    animation: splash 9s infinite;
+    transform: scale(0);
+}
+
+.water-circle::before,
+.water-circle::after{
+    position: absolute;
+    content: '';
+    inset: 0;
+    border: 1.5px solid white;
+    animation: splash 9s infinite;
+    transition: scale(0);
+}
+
+.circle-1{top: 24%; left: 16%;}
+.circle-2{top: 53%;left: 90%;}
+.circle-3{top: 66%;left: 40%;}
+
+
+@keyframes splash {
+    0%{}
+    50%,100%{
+        opacity: 0;
+        transform: scale(1);
+    }
 }
